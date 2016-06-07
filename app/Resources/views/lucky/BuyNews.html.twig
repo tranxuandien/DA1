@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include('header.html.twig') %}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    {#<h1>Lucky Numbers: {{ luckyNumberList }}</h1>#}
+
+    {#<table>#}
+        {#{% for item in product %}#}
+        {#<tr>#}
+            {#&#123;&#35;<td>{{ item.id }}</td>&#35;&#125;#}
+            {#&#123;&#35;<td>{{ item.name }}</td>&#35;&#125;#}
+            {#&#123;&#35;<td>{{ item.price }}</td>&#35;&#125;#}
+            {#<td>{{ item.code }}</td>#}
+            {#<td>{{ item.title }}</td>#}
+            {#<td>{{ item.content }}</td>#}
+            {#<td>{{ item.city }}</td>#}
+            {#<td>{{ item.address }}</td>#}
+            {#<td>{{ item.date }}</td>#}
+        {#</tr>#}
+        {#{% endfor %}#}
+    {#</table>#}
+    {#========#}
+    {# total items count #}
+    <div class="count">
+        Có {{ pagination.getTotalItemCount }} tin bán
+    </div>
+    <table class="table-responsive table-striped">;
+        <tr>
+            {# sorting of properties based on query components #}
+            <th>{{ knp_pagination_sortable(pagination, 'Mã Tin', 'a.Id') }}</th>
+            <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Content', 'a.Id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Địa Chỉ', 'a.Id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'City', 'a.Id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Date', 'a.Id') }}</th>
+
+        </tr>
+
+        {# table body #}
+        {% for article in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ article.code }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.content }}</td>
+                <td>{{ article.address }}</td>
+                <td>{{ article.city }}</td>
+                <td>{{ article.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>    
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    {#==========#}
+
+{% endblock %}

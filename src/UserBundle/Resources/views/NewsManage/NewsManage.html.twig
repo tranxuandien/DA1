@@ -1,0 +1,77 @@
+{#{% extends 'base.html.twig' %}#}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            {% include('header.html.twig') %}
+            <div id="wrapper">
+                <div class="container">
+                    <div class="shop-info">
+                        {#<div class="panel panel-primary panel-config">#}
+                            {#<div class="panel-heading"><h4>{{ salon.name }}</h4></div>#}
+                            {#<label>Địa chỉ:</label> {{ salon.address|raw }}#}
+                            {#<div>{{ salon.about|raw }}#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="shop-image"></div>#}
+                        <div class="shop-news">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Danh sách các tin mua bạn đã đăng </div>
+                                <table class="table-responsive table-striped table-bordered">
+                                    {% if buyNews != null %}
+                                        {% for article in buyNews %}
+                                            <tr>
+                                                <td>{{ article.code }}</td>
+                                                <td>{{ article.title }}</td>
+                                                <td>{{ article.content }}</td>
+                                                {#<td>{{ article.info }}</td>#}
+                                                <td>{{ article.price }}</td>
+                                                {#{% if article.shopId.id == 0 %}#}
+                                                    {#<td><b>Liên hệ:</b><br>{{ article.userId.username }}<br><b>Địa#}
+                                                            {#chỉ:</b><br>{{ article.userId.address }}<br><b>ĐT:</b><br>{{ article.userId.phone }}<br>#}
+                                                    {#</td>#}
+                                                    {#<td>{{ article.city }}</td>#}
+                                                {#{% else %}#}
+                                                    {#<td><b>Liên hệ:</b><br>{{ article.shopId.name }}<br><b>Địa#}
+                                                            {#chỉ:</b><br>{{ article.shopId.address }}<br><b>ĐT:</b><br>{{ article.shopId.phone }}<br>#}
+                                                    {#</td>#}
+                                                    {#<td></td>#}
+                                                {#{% endif %}#}
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                </table>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Danh sách các tin bán bạn đã đăng </div>
+                                <table class="table-responsive table-striped table-bordered">
+                                    {% if sellNews != null %}
+                                        {% for article in sellNews %}
+                                            <tr>
+                                                <td>{{ article.code }}</td>
+                                                <td>{{ article.status }}</td>
+                                                <td>{{ article.info }}</td>
+                                                {#<td>{{ article.info }}</td>#}
+                                                <td>{{ article.price }}</td>
+                                                {#{% if article.shopId.id == 0 %}#}
+                                                {#<td><b>Liên hệ:</b><br>{{ article.userId.username }}<br><b>Địa#}
+                                                {#chỉ:</b><br>{{ article.userId.address }}<br><b>ĐT:</b><br>{{ article.userId.phone }}<br>#}
+                                                {#</td>#}
+                                                {#<td>{{ article.city }}</td>#}
+                                                {#{% else %}#}
+                                                {#<td><b>Liên hệ:</b><br>{{ article.shopId.name }}<br><b>Địa#}
+                                                {#chỉ:</b><br>{{ article.shopId.address }}<br><b>ĐT:</b><br>{{ article.shopId.phone }}<br>#}
+                                                {#</td>#}
+                                                {#<td></td>#}
+                                                {#{% endif %}#}
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

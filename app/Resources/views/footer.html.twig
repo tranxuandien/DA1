@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {#<style type="text/css">#}
+        {#/*header*/#}
+        {##header {#}
+            {#padding-top: 10px;#}
+            {#padding-bottom: 10px;#}
+            {#height: 15%;#}
+        {#}#}
+
+        {#.head-left {#}
+            {#float: left;#}
+            {#/*width: 150px;*/#}
+            {#/*height: 100px;*/#}
+        {#}#}
+
+        {##logo-image {#}
+            {#width: 150px;#}
+            {#height: 100px;#}
+        {#}#}
+
+        {#.head-right {#}
+            {#float: right;#}
+        {#}#}
+
+        {#/*set font text*/#}
+        {#.head-text {#}
+        {#}#}
+
+        {#/*=======*/#}
+
+        {##bs-example-navbar-collapse-1 {#}
+            {#text-align: center;#}
+        {#}#}
+    {#</style>#}
+    {#<!-- row 1 -->#}
+    {#&#123;&#35;nav bar&#35;&#125;#}
+    {#<div class="nav-bar">#}
+        {#<nav class="navbar navbar-default">#}
+            {#<div class="container-fluid">#}
+                {#<!-- Collect the nav links, forms, and other content for toggling -->#}
+                {#<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
+                    {#<ul class="nav navbar-nav">#}
+                        {#<li><a href="#top">Lên đầu trang </a></li>#}
+                        {#<li><a href="/buy">Tin cần mua xe</a></li>#}
+                        {#<li><a href="#">Cửa hàng</a></li>#}
+                        {#<li><a href="/sell">Tin bán xe</a></li>#}
+                        {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+                            {#<li><a href="{{ path('up_buy_news') }}">Đăng tin mua</a></li>#}
+                            {#<li><a href="#">Đăng tin bán</a></li>#}
+                        {#{% else %}#}
+                            {#<li><a href="{{ path('fos_user_security_login') }}">Đăng tin mua</a></li>#}
+                            {#<li><a href="#">Đăng tin bán</a></li>#}
+                        {#{% endif %}#}
+                        {#<li><a href="#">Quy định</a></li>#}
+                        {#<li><a href="#">Điều khoản</a></li>#}
+                        {#<li><a href="#">Về chúng tôi</a></li>#}
+                    {#</ul>#}
+                {#</div>#}
+                {#<!-- /.navbar-collapse -->#}
+            {#</div>#}
+            {#<!-- /.container-fluid -->#}
+        {#</nav>#}
+    {#</div>#}
+    {#<!-- end row 1 -->#}
+    {#<div style="float: left; width: 845px;">#}
+        {#Xem tốt nhất trên trình duyệt <a rel="nofollow" class="f-copyright" target="_blank"#}
+                                         {#href="http://www.mozilla.com/vi/"#}
+                                         {#title="Tải Mozilla FireFox phiên bản Tiếng Việt về máy tính(miễn phí)"><b>Mozilla#}
+                {#FireFox</b></a> , <a rel="nofollow" class="f-copyright" target="_blank"#}
+                                     {#href="http://www.google.com/chrome?hl=vi"#}
+                                     {#title="Tải Google Chrome phiên bản Tiếng Việt về máy tính(miễn phí)"><b>Google#}
+                {#Chrome</b></a> hoặc <b>IE 7</b> trở lên với độ phân giải từ 1024x768 trở lên.<br>#}
+        {#Điện thoại: 04-2215 2215 / 04-2215 2246 . Email:#}
+        {#<script>document.write("con" + "tact@" + "bon" + "banh.com");</script>#}
+        {#contact@bonbanh.com. <span style="">Hotline: <script>document.write("094" + " 2727" + " 225");</script>094 2727 225</span><br>#}
+        {#<span style="color:red">Bonbanh không bán xe trực tiếp, quý khách mua xe vui lòng liên hệ trực tiếp người đăng tin.<br></span>#}
+        {#Copyright © 2006-2016 <a href="http://www.bonbanh.com" title="oto, mua ban oto, oto nhap khau">Bonbanh.com</a> -#}
+        {#<b style="font-weigth:bold">Công ty cổ phần Kypernet Việt Nam.</b> Mã số doanh nghiệp: 0101833960#}
+    {#</div>#}
+    {##}
+    <div class="container text-center">
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-md-4">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Phiên bản trên Mobile(Updating...)</a></li>
+                        <li><a href="#">Phiên bản trên Windows</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Chăm sóc khách hàng</a></li>
+                        <li><a href="#top">Lên đầu trang</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="/">© 2016 HEDSPI.</a></li>
+                    <li><a href="#">Điều khoản </a></li>
+                    <li><a href="#">Dịch vụ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

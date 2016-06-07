@@ -1,0 +1,39 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+main_page:
+    path: /home
+    defaults: { _controller: UserBundle:Default:index }
+buy_news:
+    path: /buy
+    defaults: { _controller: UserBundle:Default:buyList }
+sell_news:
+    path: /sell
+    defaults: { _controller: UserBundle:Default:sellList }
+salon_list:
+    path: /salon
+    defaults: { _controller: UserBundle:Default:shopList }
+salon_detail:
+    path: /salon_detail
+    defaults: { _controller: UserBundle:Default:shopDetail }
+get_data_search:
+    path: /search
+    defaults: { _controller: UserBundle:Default:getDataSearch }
+get_buy_news_search:
+    path: /buy_search
+    defaults: { _controller: UserBundle:Default:getBuySearch }
+up_buy_news:
+    path: /up_buy
+    defaults: { _controller: UserBundle:Default:upBuyNew }
+up_sell_news:
+    path: /up_sell
+    defaults: { _controller: UserBundle:Default:upSellNew }
+up_buy_news_confirm:
+    path: /up_buy_news_confirm
+    defaults: { _controller: UserBundle:Default:upBuyNewConfirm }
+up_sell_news_confirm:
+    path: /up_sell_news_confirm
+    defaults: { _controller: UserBundle:Default:upSellNewConfirm }
+news_manage:
+    path: /news_manage
+    defaults: { _controller: UserBundle:Default:newsManage }

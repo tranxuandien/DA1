@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include('header.html.twig') %}
+    <div style="padding-left: 10%" class="confirm-message">
+    {% if checked == 1 %}
+   <h1>TIN CỦA BẠN ĐÃ ĐƯỢC CẬP NHẬT TRÊN HỆ THỐNG!</h1>
+        {% elseif checked == 2 %}
+            BẠN CẦN PHẢI ĐĂNG NHẬP ĐỂ ĐĂNG TIN
+            {% else %}
+            <a href="{{ path('up_buy_news') }}">THỬ LẠI!</a>
+            {% endif %}
+    <a href="{{ path('main_page') }}">Quay lại trang chủ</a>
+    </div>
+{% endblock %}

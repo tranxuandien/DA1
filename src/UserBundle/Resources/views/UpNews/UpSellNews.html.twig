@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include('header.html.twig') %}
+    <h3>FORM ĐĂNG TIN CHO NGƯỜI CẦN BÁN XE:</h3>
+    <form style="padding-left: 10%" action="{{ path('up_sell_news_confirm') }}" method="post">
+        {#<input type="hidden" name="user_id" value="{{ app.user }}">#}
+        <div class="row">
+            <div class="col-xs-2">
+                <label>Hãng xe:</label>
+                <select name="brand">
+                    {% for brand in brands %}
+                    <option value="{{ brand.id }}">{{ brand.name }}</option>
+                        {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <label>Trạng thái xe:</label><br>
+                <select name="status">
+                        <option value="Xe cũ">Xe Cũ</option>
+                        <option value="Xe mới">Xe Mới</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <label>Tên xe:</label>
+                <input class=" form-control" placeholder="Tên xe" type="text" id="kind" name="kind"
+                       value="" required="required"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <label>Giá bán:</label>
+                <input class=" form-control" placeholder="Giá sẽ bán($USD)" type="text" id="price" name="price"
+                       value="" required="required"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <label>Năm mua xe:</label><br>
+                <select name="year">
+                    {% for year in 1970..2016 %}
+                    <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                </select>
+                {#<input class=" form-control" placeholder="Năm mua" type="text" id="year" #}
+                       {#value="" required="required"/>#}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <label>Thông tin mô tả:</label>
+                <textarea class="form-control" rows="5" id="comment" name="info" required="required"></textarea>
+
+                {#<input class=" form-control" placeholder="Thông số" type="text" id="info" name="info"#}
+                       {#value="" required="required"/>#}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <label>Kết quả phép tính {{ a }}+{{ b }}</label><input class="form-control" placeholder="Nhập kết quả" type="text" name="recaptcha" />
+                {#<input class=" form-control" placeholder="Nội dung" type="text" id="noidung" name="noidung"#}
+                {#value="" required="required"/>#}
+            </div>
+        </div>
+        <br>
+        <div>
+        <label>
+            <button type="submit" class="btn btn-primary"><span
+                        class="glyphicon glyphicon-upload"></span>
+                Đăng tin
+            </button>
+        </label>
+        </div>
+    </form>
+{% endblock %}

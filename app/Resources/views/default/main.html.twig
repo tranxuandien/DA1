@@ -1,0 +1,145 @@
+{#{% extends 'base.html.twig' %}#}
+
+{% block body %}
+<style type="text/css">
+    /*header*/
+        #header{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 15%;
+        }
+        .head-left{
+            float: left;
+            /*width: 150px;*/
+            /*height: 100px;*/
+        }
+        #logo-image{
+            width: 150px;
+            height: 100px;
+        }
+        .head-right{
+            float: right;
+        }
+        /*set font text*/
+        .head-text{
+        }
+        /*=======*/
+
+        #bs-example-navbar-collapse-1 {
+            text-align: center;
+        }
+        .main{
+            background-color: #F2F2F2;
+        }
+        .main-left{
+            width: 30%;
+            float: left;
+        }
+        .main-right{
+            background-color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 70%;
+            float: right;
+        }
+        .smbt{
+            display: none;
+        }
+        #hightchart{
+            width:100%;
+            height:400px;
+        }
+    </style>
+    <div id="wrapper">
+        <div id="container">
+        <!-- row 1 -->
+            {#<div class="container">#}
+                {#<div id="header" >#}
+                    {#<div class="head-left">#}
+                        {#<img id="logo-image" src="http://img.v3.news.zdn.vn/w660/Uploaded/ynssi/2013_12_15/lamborghinivang1.jpg">#}
+                        {#<i class="head-text">Thế giới xe cho mọi người</i>#}
+                    {#</div>#}
+                    {#<div class="head-right">#}
+                        {#<ul class="nav nav-pills">#}
+                            {#<li role="presentation"><a href="#">Đăng nhập</a></li>#}
+                            {#<li role="presentation"><a href="#">Đăng kí</a></li>#}
+                            {#<li role="presentation"><a href="#">Hướng dẫn</a></li>#}
+                            {#<li role="presentation"><a href="#">Liên hệ</a></li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#nav bar#}
+            {#<div class="nav-bar">#}
+                {#<nav class="navbar navbar-default">#}
+                    {#<div class="container-fluid">#}
+                        {#<!-- Collect the nav links, forms, and other content for toggling -->#}
+                        {#<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
+                            {#<ul class="nav navbar-nav">#}
+                                {#<li><a href="#">Trang chủ </a></li>#}
+                                {#<li><a href="/buy">Tìm mua xe</a></li>#}
+                                {#<li><a href="#">Cửa hàng</a></li>#}
+                                {#<li><a href="/sell">Tin bán xe</a></li>#}
+                            {#</ul>#}
+                        {#</div><!-- /.navbar-collapse -->#}
+                    {#</div><!-- /.container-fluid -->#}
+                {#</nav>#}
+            {#</div>#}
+            {% include('header.html.twig') %}
+            <!-- end row 1 -->  
+            <div class="row main">
+                <div class="main-left">
+                    <div class="brands">
+                        <ul>
+                            {% for pagi in pagination %}
+                            <li>{{ pagi.name }}</li>
+                                </tr>
+                            {% endfor %}
+                        </ul>
+                        <div class="navigation">
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="main-right">
+                    <label><input type="checkbox">ファイル名</input></label> <label><input type="checkbox">ファイル説明</input></label> <label><input class="form-control" type="text" placeholder="Nhập thông tin cần tìm kiếm"></input></label><label><button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button></label>
+                    営業TR　>　あるある
+                    <br><br>
+                    <div class="panel-heading" style="background-color: #F2F2F2">営業チーム</div>
+                    <br><br>
+                    <table class="table .info .table-striped">
+                        <thead>
+                            <tr>
+                                <th>ファイル説明</th>
+                                <th>最終更新</th>
+                                <th>col3</th>
+                                <th>col4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="info">
+                                <td><span class="glyphicon glyphicon-folder-close"></span>col1<br>営業TR　>　あるある</td>
+                                <td>1/12/2010</td>
+                                <td>col3</td>
+                                <td>col4</td>
+                            </tr>
+                            <tr>
+                                <td>col1</td>
+                                <td>col2</td>
+                                <td>col3</td>
+                                <td>col4</td>
+                            </tr>
+                            <tr class="info">
+                                <td>col1</td>
+                                <td>col2</td>
+                                <td>col3</td>
+                                <td>col4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <button class="btn btn-warning">test</button>            
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+UserBundle\Entity\ShopLink:
+    type: entity
+    table: null
+    repositoryClass: UserBundle\Repository\ShopLinkRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        linkShop:
+            type: string
+            length: 500
+            column: link_shop
+        name:
+            type: string
+            length: 255
+        image:
+            type: string
+            length: 3000
+    lifecycleCallbacks: {  }

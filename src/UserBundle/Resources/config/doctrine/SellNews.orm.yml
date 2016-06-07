@@ -1,0 +1,61 @@
+UserBundle\Entity\SellNews:
+    type: entity
+    table: null
+    repositoryClass: UserBundle\Repository\SellNewsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            length: 255
+#        userId:
+#            type: integer
+#        brandId:
+#            type: integer
+#        shopId:
+#            type: integer
+        status:
+            type: string
+            length: 255
+        kind:
+            type: string
+            length: 255
+        price:
+            type: string
+            length: 255
+        city:
+            type: string
+            length: 255
+        info:
+            type: string
+            length: 255
+        imageLink:
+            type: string
+            length: 500
+        year:
+            type: string
+            length: 255
+    manyToOne:
+            userId:
+              type: integer
+              targetEntity: FosBundle\Entity\User
+              joinColumn:
+                name: user_id
+                referencedColumnName: id
+            brandId:
+              type: integer
+              targetEntity: UserBundle\Entity\Brands
+              joinColumn:
+                name: brand_id
+                referencedColumnName: id
+            shopId:
+              type: integer
+              targetEntity: UserBundle\Entity\ShopInfo
+              joinColumn:
+                name: shop_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

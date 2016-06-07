@@ -1,0 +1,34 @@
+UserBundle\Entity\BuyNews:
+    type: entity
+    table: null
+    repositoryClass: UserBundle\Repository\BuyNewsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            length: 255
+        title:
+            type: string
+            length: 255
+        content:
+            type: string
+            length: 255
+        price:
+            type: string
+            length: 255
+        date:
+            type: string
+            length: 255
+    manyToOne:
+        userId:
+          type: integer
+          targetEntity: FosBundle\Entity\User
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

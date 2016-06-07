@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/Resources/views/base.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Resources/views/footer.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/config/config.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/FosBundle/Entity/User.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/FosBundle/Form/RegistrationType.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/FosBundle/Resources/config/doctrine/User.orm.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UserBundle/Entity/SellNews.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UserBundle/Resources/views/NewsManage/NewsManage.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UserBundle/Resources/views/ShopInfo/ShopDetail.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UserBundle/Resources/views/ShopInfo/ShopInfo.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UserBundle/Resources/views/UpNews/UpBuyNews.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UserBundle/Resources/views/UpNews/UpNewsConfirm.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UserBundle/Resources/views/UpNews/UpSellNews.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig" charset="UTF-8" />
+  </component>
+</project>

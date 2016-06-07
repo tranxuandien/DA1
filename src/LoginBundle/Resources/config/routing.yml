@@ -1,0 +1,14 @@
+login_user:
+    resource: "@LoginBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+login_homepage:
+    path:     /
+    defaults: { _controller: LoginBundle:Default:index }
+login:
+  path: /login
+  defaults: { _controller: LoginBundle:Security:login }
+login_check:
+  path: /login_check
+logout:
+  path: /logout

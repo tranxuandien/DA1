@@ -1,0 +1,62 @@
+{#{% extends 'base.html.twig' %}#}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            {% include('header.html.twig') %}
+            <div id="wrapper">
+                <div class="container">
+                    {#========#}
+                    {# total items count #}
+
+                    <div class="search-salon">
+                        <form action="{{ path('salon_list')}}" method="get">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <input class=" form-control" placeholder="Tên Salon" type="text"
+                                           name="salonName"
+                                           value=""/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="button-search">
+                                <label>
+                                    <button type="submit" class="btn btn-primary"><span
+                                                class="glyphicon glyphicon-search"></span>
+                                        Tìm kiếm
+                                    </button>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="count">
+                        Có {{ pagination.getTotalItemCount }} Salon ô tô
+                    </div>
+                    <table class="table-responsive table-striped table-bordered">;
+                        <tr>
+                            <th class="buy-news">{{ knp_pagination_sortable(pagination, 'Salon', 'a.Id') }}</th>
+                            <th class="buy-news">{{ knp_pagination_sortable(pagination, 'Ảnh', 'a.Id') }}</th>
+                            <th class="buy-news">{{ knp_pagination_sortable(pagination, 'Thông tin', 'a.Id') }}</th>
+                            <th class="buy-news contact">{{ knp_pagination_sortable(pagination, 'Địa Chỉ Liên Hệ', 'a.Id') }}</th>
+                        </tr>
+                        {# table body #}
+                        {% for article in pagination %}
+                            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                                <td class="buy-news"><a
+                                            href="{{ path('salon_detail') }}?salonId={{ article.id }}">{{ article.name }}</a>
+                                </td>
+                                <td class="buy-news buy-news-content"><img src="{{ article.image|raw }}"></td>
+                                <td class="buy-news buy-news-content">{{ article.about|raw }}</td>
+                                <td class="buy-news">{{ article.address|raw }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    {# display navigation #}
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                    {#==========#}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

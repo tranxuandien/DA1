@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include('header.html.twig') %}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    {#========#}
+    {# total items count #}
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+    <div class="count">
+    <i>
+        Trang{{pageRequest}}/{{pagination.pageCount}} (Tổng {{ pagination.getTotalItemCount }} tin mua).
+        </i>
+    </div>
+    
+    <table class="table-responsive table-striped">
+        <tr>
+            {# sorting of properties based on query components #}
+            <th>{{ knp_pagination_sortable(pagination, 'Mã Tin', 'a.Id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Chi tiet', 'a.Id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Lien He', 'a.Id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Tinh', 'a.Id') }}</th>
+        </tr>
+
+        {# table body #}
+        {% for article in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ article.code }}<br>{{    article.status }}</td>
+                <td><b>{{ article.kind }}</b><br>{{ article.info }}</td>
+                <td><b>{{ article.price }}</b><br>{{ article.contact|raw }}</td>
+                <td>{{ article.city }}</td>
+            </tr>
+        {% endfor %}
+    </table>    
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    {#==========#}
+
+{% endblock %}

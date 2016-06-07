@@ -1,0 +1,75 @@
+{#{% extends 'base.html.twig' %}#}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            {% include('header.html.twig') %}
+            <div id="wrapper">
+                <div class="container">
+                    {#========#}
+                    {# total items count #}
+                    <div class="count">
+                        Có {{ pagination.getTotalItemCount }} tin bán
+                    </div>
+                    <form action="{{ path('get_buy_news_search') }}" method="get">
+                        <label>Mức giá:</label>
+                        <select name="price">
+                            <option value="" selected></option>
+                            <option value="[Dưới 200 Triệu]">[Dưới 200 Triệu]</option>
+                            <option value="[200-400 Triệu]">[200-400 Triệu]</option>
+                            <option value="[400-600 Triệu]">[400-600 Triệu]</option>
+                            <option value="[600-800 Triệu]">[600-800 Triệu]</option>
+                            <option value="[800-1 Tỉ]">[800-1 Tỉ]</option>
+                            <option value="[1 Tỉ]">[1 Tỉ]</option>
+                        </select>
+                        <br>
+                        <label>Tỉnh:</label>
+                        <input type="text" name="city">
+
+                        <div class="button-search">
+                            <label>
+                                <button type="submit" class="btn btn-primary"><span
+                                            class="glyphicon glyphicon-search"></span>
+                                    Tìm kiếm
+                                </button>
+                            </label>
+                        </div>
+                    </form>
+                    <table class="table-responsive table-striped table-bordered">;
+                        <tr>
+                            {# sorting of properties based on query components #}
+                            <th class="buy-news">{{ knp_pagination_sortable(pagination, 'Mã Tin', 'a.Id') }}</th>
+                            <th class="buy-news info" {% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Nội dung', 'a.title') }}</th>
+                            <th class="buy-news">{{ knp_pagination_sortable(pagination, 'Giá', 'a.Id') }}</th>
+                            <th class="buy-news contact">{{ knp_pagination_sortable(pagination, 'Địa Chỉ Liên Hệ', 'a.Id') }}</th>
+                            <th class="buy-news">{{ knp_pagination_sortable(pagination, 'City', 'a.Id') }}</th>
+                            <th class="buy-news">{{ knp_pagination_sortable(pagination, 'Date', 'a.Id') }}</th>
+                        </tr>
+                        {# table body #}
+                        {% for article in pagination %}
+                            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                                <td class="buy-news">{{ article.code }}</td>
+                                <td class="buy-news buy-news-content">
+                                    <b>{{ article.title|raw }}</b><br>{{ article.content }}<br></td>
+                                <td class="buy-news">{{ article.price }}</td>
+                                <td class="buy-news buy-news-contact"><b>Liên
+                                        hệ:</b>{{ article.userId.name }}
+                                    <br><b>ĐT:</b>{{ article.userId.phone }}<br><b>Địa
+                                        chỉ:</b>{{ article.userId.address }}</td>
+                                <td class="buy-news">{{ article.userId.city }}</td>
+                                <td class="buy-news">{{ article.date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    {# display navigation #}
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                    {#==========#}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% include('footer.html.twig') %}
+
+{% endblock %}
