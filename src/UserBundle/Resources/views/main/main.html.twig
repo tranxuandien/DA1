@@ -74,9 +74,11 @@
                                 <div class="brands">
                                     <ul class="list-group">
                                         {% for pagi in brs %}
-                                            <li class="list-group-item"><a
-                                                        href="{{ path('get_data_search') }}?brand={{ pagi.id }}">{{ pagi.name }}</a>
-                                            </li>
+                                            {% if pagi.name != null %}
+                                                <li class="list-group-item"><a
+                                                            href="{{ path('get_data_search') }}?brand={{ pagi.id }}">{{ pagi.name }}</a>
+                                                </li>
+                                            {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -90,9 +92,11 @@
                                         <div class="search-op">
                                             <label>Hãng xe:</label>
                                             <select name="brand">
-                                                {#<option value="" selected></option>#}
+                                                <option value="" selected></option>
                                                 {% for brand in brands %}
-                                                    <option value="{{ brand.id }}">{{ brand.name }}</option>
+                                                    {% if brand.name != null %}
+                                                        <option value="{{ brand.id }}">{{ brand.name }}</option>
+                                                    {% endif %}
                                                 {% endfor %}
                                             </select>
                                             <label>Trạng thái:</label>
@@ -122,6 +126,8 @@
                                             <br>
                                             <label>Tỉnh:</label>
                                             <input type="text" name="city">
+                                            <label>Tên xe:</label>
+                                            <input type="text" name="carName">
                                         </div>
                                         <div class="button-search">
                                             <label>
@@ -161,15 +167,16 @@
                                                 <td class="table-content">{{ article.code }}</td>
                                                 <td class="table-content">{{ article.imageLink|raw }}</td>
                                                 <td class="table-content status">{{ article.status }}</td>
-                                                <td class="table-content info main-info">{{ article.info }}</td>
-                                                <td class="table-content price">{{ article.price }}</td>
-                                                {% if article.shopId.id == 0 %}
+                                                <td class="table-content info main-info">
+                                                    <b>{{ article.kind }}</b><br>{{ article.info }}</td>
+                                                <td class="table-content price">{{ article.price }} USD</td>
+                                                {% if article.shopId.id == 0 and article.userId.id != 0 %}
                                                     <td class="table-content main-contact"><b>Liên
-                                                            hệ:</b><br>{{ article.userId.name }}<br><b>Địa
-                                                            chỉ:</b><br>{{ article.userId.address }}
-                                                        <br><b>ĐT:</b><br>{{ article.userId.phone }}<br></td>
+                                                            hệ:</b>{{ article.userId.name }}<br><b>Địa
+                                                            chỉ:</b>{{ article.userId.address }}
+                                                        <br><b>ĐT:</b>{{ article.userId.phone }}<br></td>
                                                     <td class="table-content city">{{ article.city }}</td>
-                                                {% else %}
+                                                {% elseif article.shopId.id != 0 %}
                                                     <td class="table-content main-contact"><b>Liên
                                                             hệ:</b><br>{{ article.shopId.name }}<br><b>Địa
                                                             chỉ:</b><br>{{ article.shopId.address }}

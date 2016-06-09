@@ -16,8 +16,8 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_adbc648efe3d22b2aef0d1245eac6e7e51a035232d5eba5e740ef70866766c39 = $this->env->getExtension("native_profiler");
-        $__internal_adbc648efe3d22b2aef0d1245eac6e7e51a035232d5eba5e740ef70866766c39->enter($__internal_adbc648efe3d22b2aef0d1245eac6e7e51a035232d5eba5e740ef70866766c39_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "UserBundle:main:main.html.twig"));
+        $__internal_27f7f328ff1a7b1bba5dd62bb4ebf7ff119b1db5be5a876d2de110b25360c09a = $this->env->getExtension("native_profiler");
+        $__internal_27f7f328ff1a7b1bba5dd62bb4ebf7ff119b1db5be5a876d2de110b25360c09a->enter($__internal_27f7f328ff1a7b1bba5dd62bb4ebf7ff119b1db5be5a876d2de110b25360c09a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "UserBundle:main:main.html.twig"));
 
         // line 2
         echo "
@@ -25,14 +25,14 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
         // line 3
         $this->displayBlock('body', $context, $blocks);
         
-        $__internal_adbc648efe3d22b2aef0d1245eac6e7e51a035232d5eba5e740ef70866766c39->leave($__internal_adbc648efe3d22b2aef0d1245eac6e7e51a035232d5eba5e740ef70866766c39_prof);
+        $__internal_27f7f328ff1a7b1bba5dd62bb4ebf7ff119b1db5be5a876d2de110b25360c09a->leave($__internal_27f7f328ff1a7b1bba5dd62bb4ebf7ff119b1db5be5a876d2de110b25360c09a_prof);
 
     }
 
     public function block_body($context, array $blocks = array())
     {
-        $__internal_e5473c7402034c73dfa33c0da12f3458b0dbb5d1b0f3584f9ebd8f91e3fcd75c = $this->env->getExtension("native_profiler");
-        $__internal_e5473c7402034c73dfa33c0da12f3458b0dbb5d1b0f3584f9ebd8f91e3fcd75c->enter($__internal_e5473c7402034c73dfa33c0da12f3458b0dbb5d1b0f3584f9ebd8f91e3fcd75c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_90192d606ed076c0e2cdd5d16dd0f11e7bd93fd21dedbf4a0ddb359612d8920b = $this->env->getExtension("native_profiler");
+        $__internal_90192d606ed076c0e2cdd5d16dd0f11e7bd93fd21dedbf4a0ddb359612d8920b->enter($__internal_90192d606ed076c0e2cdd5d16dd0f11e7bd93fd21dedbf4a0ddb359612d8920b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "    <style type=\"text/css\">
@@ -117,22 +117,28 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
         $context['_seq'] = twig_ensure_traversable((isset($context["brs"]) ? $context["brs"] : $this->getContext($context, "brs")));
         foreach ($context['_seq'] as $context["_key"] => $context["pagi"]) {
             // line 77
-            echo "                                            <li class=\"list-group-item\"><a
-                                                        href=\"";
-            // line 78
-            echo $this->env->getExtension('routing')->getPath("get_data_search");
-            echo "?brand=";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["pagi"], "id", array()), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["pagi"], "name", array()), "html", null, true);
-            echo "</a>
-                                            </li>
-                                        ";
+            echo "                                            ";
+            if (($this->getAttribute($context["pagi"], "name", array()) != null)) {
+                // line 78
+                echo "                                                <li class=\"list-group-item\"><a
+                                                            href=\"";
+                // line 79
+                echo $this->env->getExtension('routing')->getPath("get_data_search");
+                echo "?brand=";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["pagi"], "id", array()), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["pagi"], "name", array()), "html", null, true);
+                echo "</a>
+                                                </li>
+                                            ";
+            }
+            // line 82
+            echo "                                        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['pagi'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 81
+        // line 83
         echo "                                    </ul>
                                 </div>
                             </div>
@@ -142,30 +148,36 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                 <div class=\"panel-heading\">HỆ THỐNG TIN TỨC MUA BÁN Ô TÔ UY TÍN NHẤT VIẾT NAM</div>
                                 <div class=\"form-search\">
                                     <form action=\"";
-        // line 89
+        // line 91
         echo $this->env->getExtension('routing')->getPath("get_data_search");
         echo "\" method=\"get\">
                                         <div class=\"search-op\">
                                             <label>Hãng xe:</label>
                                             <select name=\"brand\">
+                                                <option value=\"\" selected></option>
                                                 ";
-        // line 94
-        echo "                                                ";
+        // line 96
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["brands"]) ? $context["brands"] : $this->getContext($context, "brands")));
         foreach ($context['_seq'] as $context["_key"] => $context["brand"]) {
-            // line 95
-            echo "                                                    <option value=\"";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["brand"], "id", array()), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["brand"], "name", array()), "html", null, true);
-            echo "</option>
-                                                ";
+            // line 97
+            echo "                                                    ";
+            if (($this->getAttribute($context["brand"], "name", array()) != null)) {
+                // line 98
+                echo "                                                        <option value=\"";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["brand"], "id", array()), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["brand"], "name", array()), "html", null, true);
+                echo "</option>
+                                                    ";
+            }
+            // line 100
+            echo "                                                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['brand'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 97
+        // line 101
         echo "                                            </select>
                                             <label>Trạng thái:</label>
                                             <select name=\"status\">
@@ -177,11 +189,11 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                             <select name=\"year\">
                                                 <option value=\"\" selected></option>
                                                 ";
-        // line 107
+        // line 111
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(range(1970, 2017));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 108
+            // line 112
             echo "                                                    <option value=\"";
             echo twig_escape_filter($this->env, $context["i"], "html", null, true);
             echo "\">";
@@ -192,7 +204,7 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 110
+        // line 114
         echo "                                            </select>
                                             <label>Giá:</label>
                                             <select name=\"price\">
@@ -208,6 +220,8 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                             <br>
                                             <label>Tỉnh:</label>
                                             <input type=\"text\" name=\"city\">
+                                            <label>Tên xe:</label>
+                                            <input type=\"text\" name=\"carName\">
                                         </div>
                                         <div class=\"button-search\">
                                             <label>
@@ -222,20 +236,20 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                 <div class=\"count\">
                                     <i>
                                         Trang";
-        // line 138
+        // line 144
         echo twig_escape_filter($this->env, (isset($context["pageRequest"]) ? $context["pageRequest"] : $this->getContext($context, "pageRequest")), "html", null, true);
         echo "/";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "pageCount", array()), "html", null, true);
         echo "
                                         (Tổng ";
-        // line 139
+        // line 145
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "getTotalItemCount", array()), "html", null, true);
         echo " tin mua).
                                     </i>
                                 </div>
                                 <div class=\"pagi-top navigation\">
                                     ";
-        // line 143
+        // line 149
         echo $this->env->getExtension('knp_pagination')->render($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")));
         echo "
                                 </div>
@@ -243,38 +257,38 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                     <table class=\"table-responsive table-striped table-bordered \">
                                         <tr>
                                             ";
-        // line 149
+        // line 155
         echo "                                            <th class=\"table-header tbl-code\">";
         echo $this->env->getExtension('knp_pagination')->sortable($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "Mã Tin", "a.Id");
         echo "</th>
                                             <th class=\"table-header\">";
-        // line 150
+        // line 156
         echo $this->env->getExtension('knp_pagination')->sortable($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "Hình ảnh", "a.Id");
         echo "</th>
                                             <th class=\"table-header\">";
-        // line 151
+        // line 157
         echo $this->env->getExtension('knp_pagination')->sortable($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "Trạng thái", "a.Id");
         echo "</th>
                                             <th class=\"table-header\">";
-        // line 152
+        // line 158
         echo $this->env->getExtension('knp_pagination')->sortable($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "Chi tiết", "a.Id");
         echo "</th>
                                             <th class=\"table-header\">";
-        // line 153
+        // line 159
         echo $this->env->getExtension('knp_pagination')->sortable($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "Giá", "a.Id");
         echo "</th>
                                             <th class=\"table-header\">";
-        // line 154
+        // line 160
         echo $this->env->getExtension('knp_pagination')->sortable($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "Liên hệ", "a.Id");
         echo "</th>
                                             <th class=\"table-header\">";
-        // line 155
+        // line 161
         echo $this->env->getExtension('knp_pagination')->sortable($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")), "Tỉnh", "a.Id");
         echo "</th>
                                         </tr>
 
                                         ";
-        // line 159
+        // line 165
         echo "                                        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")));
@@ -292,73 +306,77 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 160
+            // line 166
             echo "                                            <tr ";
             if (($this->getAttribute($context["loop"], "index", array()) % 2 == 1)) {
                 echo "class=\"color\"";
             }
             echo ">
                                                 <td class=\"table-content\">";
-            // line 161
+            // line 167
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "code", array()), "html", null, true);
             echo "</td>
                                                 <td class=\"table-content\">";
-            // line 162
+            // line 168
             echo $this->getAttribute($context["article"], "imageLink", array());
             echo "</td>
                                                 <td class=\"table-content status\">";
-            // line 163
+            // line 169
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "status", array()), "html", null, true);
             echo "</td>
-                                                <td class=\"table-content info main-info\">";
-            // line 164
+                                                <td class=\"table-content info main-info\">
+                                                    <b>";
+            // line 171
+            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "kind", array()), "html", null, true);
+            echo "</b><br>";
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "info", array()), "html", null, true);
             echo "</td>
                                                 <td class=\"table-content price\">";
-            // line 165
+            // line 172
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "price", array()), "html", null, true);
-            echo "</td>
+            echo " USD</td>
                                                 ";
-            // line 166
-            if (($this->getAttribute($this->getAttribute($context["article"], "shopId", array()), "id", array()) == 0)) {
-                // line 167
+            // line 173
+            if ((($this->getAttribute($this->getAttribute($context["article"], "shopId", array()), "id", array()) == 0) && ($this->getAttribute($this->getAttribute($context["article"], "userId", array()), "id", array()) != 0))) {
+                // line 174
                 echo "                                                    <td class=\"table-content main-contact\"><b>Liên
-                                                            hệ:</b><br>";
-                // line 168
+                                                            hệ:</b>";
+                // line 175
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["article"], "userId", array()), "name", array()), "html", null, true);
                 echo "<br><b>Địa
-                                                            chỉ:</b><br>";
-                // line 169
+                                                            chỉ:</b>";
+                // line 176
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["article"], "userId", array()), "address", array()), "html", null, true);
                 echo "
-                                                        <br><b>ĐT:</b><br>";
-                // line 170
+                                                        <br><b>ĐT:</b>";
+                // line 177
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["article"], "userId", array()), "phone", array()), "html", null, true);
                 echo "<br></td>
                                                     <td class=\"table-content city\">";
-                // line 171
+                // line 178
                 echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "city", array()), "html", null, true);
                 echo "</td>
                                                 ";
-            } else {
-                // line 173
+            } elseif (($this->getAttribute($this->getAttribute(            // line 179
+$context["article"], "shopId", array()), "id", array()) != 0)) {
+                // line 180
                 echo "                                                    <td class=\"table-content main-contact\"><b>Liên
                                                             hệ:</b><br>";
-                // line 174
+                // line 181
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["article"], "shopId", array()), "name", array()), "html", null, true);
                 echo "<br><b>Địa
                                                             chỉ:</b><br>";
-                // line 175
+                // line 182
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["article"], "shopId", array()), "address", array()), "html", null, true);
                 echo "
                                                         <br><b>ĐT:</b><br>";
-                // line 176
+                // line 183
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["article"], "shopId", array()), "phone", array()), "html", null, true);
                 echo "<br></td>
                                                     <td class=\"table-content city\"></td>
                                                 ";
             }
-            // line 179
+            // line 186
             echo "                                            </tr>
                                         ";
             ++$context['loop']['index0'];
@@ -373,14 +391,14 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 181
+        // line 188
         echo "                                    </table>
                                 </div>
                                 ";
-        // line 184
+        // line 191
         echo "                                <div class=\"pagi-top navigation\">
                                     ";
-        // line 185
+        // line 192
         echo $this->env->getExtension('knp_pagination')->render($this->env, (isset($context["pagination"]) ? $context["pagination"] : $this->getContext($context, "pagination")));
         echo "
                                 </div>
@@ -420,22 +438,22 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                                 hệ thống. Xe của bạn sẽ nhanh chóng được bán thông qua thông tin quảng
                                                 bá trên kênh rộng rãi.
                                                 ";
-        // line 222
+        // line 229
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 223
+            // line 230
             echo "                                                    <a href=\"";
             echo $this->env->getExtension('routing')->getPath("up_sell_news");
             echo "\">Đăng tin bán xe</a>
                                                 ";
         } else {
-            // line 225
+            // line 232
             echo "                                                    <a href=\"";
             echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
             echo "\">Đăng tin bán
                                                         xe</a>
                                                 ";
         }
-        // line 228
+        // line 235
         echo "                                            </div>
                                         </div>
                                     </div>
@@ -450,22 +468,22 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                             <div class=\"panel-body\">Cho phép bạn dễ dàng đăng tin mua xe lên
                                                 bonbanh.com. Các nhà cung cấp sẽ nhanh chóng liên hệ với bạn .
                                                 ";
-        // line 241
+        // line 248
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 242
+            // line 249
             echo "                                                    <a href=\"";
             echo $this->env->getExtension('routing')->getPath("up_buy_news");
             echo "\">Đăng tin mua xe</a>
                                                 ";
         } else {
-            // line 244
+            // line 251
             echo "                                                    <a href=\"";
             echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
             echo "\">Đăng tin mua
                                                         xe</a>
                                                 ";
         }
-        // line 247
+        // line 254
         echo "                                            </div>
                                         </div>
                                     </div>
@@ -482,7 +500,7 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                                 cập
                                                 nhật đầy đủ và phong phú.
                                                 <a href=\"";
-        // line 262
+        // line 269
         echo $this->env->getExtension('routing')->getPath("salon_list");
         echo "\"> Tìm salon</a>
                                             </div>
@@ -499,11 +517,11 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
                                         <div id=\"collapse5\" class=\"panel-collapse collapse\">
                                             <div class=\"panel-body\">Tìm kiếm thông tin mua/ bán trên website dễ dàng!
                                                 <a href=\"";
-        // line 276
+        // line 283
         echo $this->env->getExtension('routing')->getPath("sell_news");
         echo "\">Tìm xe đăng bán</a>
                                                 <a href=\"";
-        // line 277
+        // line 284
         echo $this->env->getExtension('routing')->getPath("buy_news");
         echo "\">Tìm người mua xe</a>
                                             </div>
@@ -518,10 +536,10 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
         </div>
     </div>
     ";
-        // line 289
-        $this->loadTemplate("footer.html.twig", "UserBundle:main:main.html.twig", 289)->display($context);
+        // line 296
+        $this->loadTemplate("footer.html.twig", "UserBundle:main:main.html.twig", 296)->display($context);
         
-        $__internal_e5473c7402034c73dfa33c0da12f3458b0dbb5d1b0f3584f9ebd8f91e3fcd75c->leave($__internal_e5473c7402034c73dfa33c0da12f3458b0dbb5d1b0f3584f9ebd8f91e3fcd75c_prof);
+        $__internal_90192d606ed076c0e2cdd5d16dd0f11e7bd93fd21dedbf4a0ddb359612d8920b->leave($__internal_90192d606ed076c0e2cdd5d16dd0f11e7bd93fd21dedbf4a0ddb359612d8920b_prof);
 
     }
 
@@ -532,7 +550,7 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
 
     public function getDebugInfo()
     {
-        return array (  522 => 289,  507 => 277,  503 => 276,  486 => 262,  469 => 247,  462 => 244,  456 => 242,  454 => 241,  439 => 228,  432 => 225,  426 => 223,  424 => 222,  384 => 185,  381 => 184,  377 => 181,  362 => 179,  356 => 176,  352 => 175,  348 => 174,  345 => 173,  340 => 171,  336 => 170,  332 => 169,  328 => 168,  325 => 167,  323 => 166,  319 => 165,  315 => 164,  311 => 163,  307 => 162,  303 => 161,  296 => 160,  278 => 159,  272 => 155,  268 => 154,  264 => 153,  260 => 152,  256 => 151,  252 => 150,  247 => 149,  239 => 143,  232 => 139,  226 => 138,  196 => 110,  185 => 108,  181 => 107,  169 => 97,  158 => 95,  153 => 94,  146 => 89,  136 => 81,  123 => 78,  120 => 77,  116 => 76,  106 => 68,  104 => 67,  101 => 66,  38 => 4,  26 => 3,  23 => 2,);
+        return array (  540 => 296,  525 => 284,  521 => 283,  504 => 269,  487 => 254,  480 => 251,  474 => 249,  472 => 248,  457 => 235,  450 => 232,  444 => 230,  442 => 229,  402 => 192,  399 => 191,  395 => 188,  380 => 186,  374 => 183,  370 => 182,  366 => 181,  363 => 180,  361 => 179,  357 => 178,  353 => 177,  349 => 176,  345 => 175,  342 => 174,  340 => 173,  336 => 172,  330 => 171,  325 => 169,  321 => 168,  317 => 167,  310 => 166,  292 => 165,  286 => 161,  282 => 160,  278 => 159,  274 => 158,  270 => 157,  266 => 156,  261 => 155,  253 => 149,  246 => 145,  240 => 144,  208 => 114,  197 => 112,  193 => 111,  181 => 101,  175 => 100,  167 => 98,  164 => 97,  160 => 96,  152 => 91,  142 => 83,  136 => 82,  126 => 79,  123 => 78,  120 => 77,  116 => 76,  106 => 68,  104 => 67,  101 => 66,  38 => 4,  26 => 3,  23 => 2,);
     }
 }
 /* {#{% extends 'base.html.twig' %}#}*/
@@ -611,9 +629,11 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
 /*                                 <div class="brands">*/
 /*                                     <ul class="list-group">*/
 /*                                         {% for pagi in brs %}*/
-/*                                             <li class="list-group-item"><a*/
-/*                                                         href="{{ path('get_data_search') }}?brand={{ pagi.id }}">{{ pagi.name }}</a>*/
-/*                                             </li>*/
+/*                                             {% if pagi.name != null %}*/
+/*                                                 <li class="list-group-item"><a*/
+/*                                                             href="{{ path('get_data_search') }}?brand={{ pagi.id }}">{{ pagi.name }}</a>*/
+/*                                                 </li>*/
+/*                                             {% endif %}*/
 /*                                         {% endfor %}*/
 /*                                     </ul>*/
 /*                                 </div>*/
@@ -627,9 +647,11 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
 /*                                         <div class="search-op">*/
 /*                                             <label>Hãng xe:</label>*/
 /*                                             <select name="brand">*/
-/*                                                 {#<option value="" selected></option>#}*/
+/*                                                 <option value="" selected></option>*/
 /*                                                 {% for brand in brands %}*/
-/*                                                     <option value="{{ brand.id }}">{{ brand.name }}</option>*/
+/*                                                     {% if brand.name != null %}*/
+/*                                                         <option value="{{ brand.id }}">{{ brand.name }}</option>*/
+/*                                                     {% endif %}*/
 /*                                                 {% endfor %}*/
 /*                                             </select>*/
 /*                                             <label>Trạng thái:</label>*/
@@ -659,6 +681,8 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
 /*                                             <br>*/
 /*                                             <label>Tỉnh:</label>*/
 /*                                             <input type="text" name="city">*/
+/*                                             <label>Tên xe:</label>*/
+/*                                             <input type="text" name="carName">*/
 /*                                         </div>*/
 /*                                         <div class="button-search">*/
 /*                                             <label>*/
@@ -698,15 +722,16 @@ class __TwigTemplate_0ef14f190860b1593d9b0f328f0e736ec01f1def5b0ea4ec898d134aae7
 /*                                                 <td class="table-content">{{ article.code }}</td>*/
 /*                                                 <td class="table-content">{{ article.imageLink|raw }}</td>*/
 /*                                                 <td class="table-content status">{{ article.status }}</td>*/
-/*                                                 <td class="table-content info main-info">{{ article.info }}</td>*/
-/*                                                 <td class="table-content price">{{ article.price }}</td>*/
-/*                                                 {% if article.shopId.id == 0 %}*/
+/*                                                 <td class="table-content info main-info">*/
+/*                                                     <b>{{ article.kind }}</b><br>{{ article.info }}</td>*/
+/*                                                 <td class="table-content price">{{ article.price }} USD</td>*/
+/*                                                 {% if article.shopId.id == 0 and article.userId.id != 0 %}*/
 /*                                                     <td class="table-content main-contact"><b>Liên*/
-/*                                                             hệ:</b><br>{{ article.userId.name }}<br><b>Địa*/
-/*                                                             chỉ:</b><br>{{ article.userId.address }}*/
-/*                                                         <br><b>ĐT:</b><br>{{ article.userId.phone }}<br></td>*/
+/*                                                             hệ:</b>{{ article.userId.name }}<br><b>Địa*/
+/*                                                             chỉ:</b>{{ article.userId.address }}*/
+/*                                                         <br><b>ĐT:</b>{{ article.userId.phone }}<br></td>*/
 /*                                                     <td class="table-content city">{{ article.city }}</td>*/
-/*                                                 {% else %}*/
+/*                                                 {% elseif article.shopId.id != 0 %}*/
 /*                                                     <td class="table-content main-contact"><b>Liên*/
 /*                                                             hệ:</b><br>{{ article.shopId.name }}<br><b>Địa*/
 /*                                                             chỉ:</b><br>{{ article.shopId.address }}*/

@@ -18,10 +18,12 @@ class SellNewsRepository extends \Doctrine\ORM\EntityRepository
         $price=$request->query->get('price');
         $year=$request->query->get('year');
         $city=$request->query->get('city');
-        if(($brand!="")||($status!="")||($price!="")||($year!="")||($city!="")) {
+        $carName=$request->query->get('carName');
+        if(($brand!="")||($status!="")||($price!="")||($year!="")||($city!="")||($carName!="")) {
             $queryBuilder = $this->getEntityManager()->createQueryBuilder()
                 ->select('n')
-                ->from($this->getEntityName(),'n');
+                ->from($this->getEntityName(),'n')
+                ->innerJoin('UserBundle\\Entity\\ShopInfo','l','WITH', "n.shopId = l.id");
             if($brand!=null){
                 $queryBuilder->where('n.brandId= :brandId')
                     ->setParameter('brandId', $brand);
@@ -45,9 +47,17 @@ class SellNewsRepository extends \Doctrine\ORM\EntityRepository
                 }
             }
             if($city!=null){
-                $queryBuilder->andwhere('n.city LIKE :city')
+                $queryBuilder->andwhere('l.address LIKE :city or n.city LIKE :city')
                     ->setParameter('city', '%'.$city.'%');
             }
+            if($carName!=null){
+                $queryBuilder->andwhere('n.kind LIKE :kind')
+                    ->setParameter('kind', '%'.$carName.'%');
+            }
+//            if($city!=null){
+//                $queryBuilder->andwhere('n.city LIKE :city')
+//                    ->setParameter('city', '%'.$city.'%');
+//            }
 
             $result=$queryBuilder->getQuery()->getResult();
             return $result;
